@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Praveen C - Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
+  <style>
+    /* --- Global styles --- */
+    body {
+      margin: 0;
+      background: #121212;
+      font-family: 'Poppins', sans-serif;
+      color: #e0e0e0;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    /* --- Container setup --- */
+    .container {
+      max-width: 900px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 40px;
+      background: #1e1e1e;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #ff3b3faa;
+      padding: 30px;
+    }
+
+    /* --- Sidebar (left panel) styles --- */
+    .sidebar {
+      text-align: center;
+      border-right: 2px solid #3399ff;
+      padding-right: 30px;
+    }
+
+    .profile-pic {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      border: 4px solid #ff3b3f;
+      object-fit: cover;
+      margin-bottom: 20px;
+      box-shadow: 0 0 15px #ff3b3faa;
+    }
+
+    .name {
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: #ff3b3f;
+      margin-bottom: 5px;
+    }
+
+    .title {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #3399ff;
+      margin-bottom: 20px;
+    }
+
+    .contact-info p {
+      margin: 12px 0;
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+    .contact-info a {
+      color: #ff3b3f;
+      text-decoration: none;
+      word-break: break-word;
+    }
+    .contact-info a:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Main content (right panel) styles --- */
+    .content section {
+      margin-bottom: 40px;
+    }
+    .content h2 {
+      font-size: 1.8rem;
+      color: #ff3b3f;
+      margin-bottom: 15px;
+      border-bottom: 2px solid #3399ff;
+      padding-bottom: 5px;
+      width: fit-content;
+    }
+
+    /* --- About Me section --- */
+    #about p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* --- Skills section --- */
+    #skills ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      padding-left: 0;
+    }
+    #skills li {
+      background: #3399ff;
+      color: #121212;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: 600;
+      box-shadow: 0 0 10px #3399ff88;
+      transition: background 0.3s ease;
+      user-select: none;
+      cursor: default;
+    }
+    #skills li:hover {
+      background: #ff3b3f;
+      color: #fff;
+      box-shadow: 0 0 15px #ff3b3fbb;
+    }
+    #skills p {
+      margin-top: 15px;
+      max-width: 600px;
+      color: #aaa;
+      line-height: 1.4;
+    }
+
+    /* --- Projects section --- */
+    #projects .project {
+      display: flex;
+      background: #222;
+      border-radius: 12px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 0 10px #ff3b3faa;
+      transition: transform 0.3s ease;
+      max-width: 700px;
+    }
+    #projects .project:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff3b3fdd;
+    }
+    #projects img {
+      width: 150px;
+      object-fit: cover;
+      border-right: 3px solid #3399ff;
+    }
+    #projects .details {
+      padding: 15px 20px;
+      color: #ccc;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    #projects .details h3 {
+      color: #ff3b3f;
+      margin-bottom: 8px;
+      font-size: 1.3rem;
+    }
+    #projects .details p {
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+    #projects .details a {
+      margin-top: 10px;
+      align-self: flex-start;
+      background: #3399ff;
+      color: #121212;
+      padding: 8px 14px;
+      border-radius: 6px;
+      font-weight: 600;
+      text-decoration: none;
+      box-shadow: 0 0 12px #3399ffaa;
+      transition: background 0.3s ease;
+    }
+    #projects .details a:hover {
+      background: #ff3b3f;
+      color: #fff;
+      box-shadow: 0 0 15px #ff3b3fbb;
+    }
+
+    /* --- Education section --- */
+    #education p {
+      font-size: 1.1rem;
+      color: #ccc;
+      max-width: 600px;
+      line-height: 1.6;
+    }
+
+    /* --- Responsive styles --- */
+    @media (max-width: 700px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+      .sidebar {
+        border-right: none;
+        border-bottom: 2px solid #3399ff;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+      }
+      #projects .project {
+        flex-direction: column;
+        max-width: 100%;
+      }
+      #projects img {
+        width: 100%;
+        border-right: none;
+        border-bottom: 3px solid #3399ff;
+        border-radius: 12px 12px 0 0;
+      }
+      #projects .details {
+        padding: 15px 15px 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar / Left panel -->
+    <aside class="sidebar">
+      <img src="img.jpg" alt="Praveen C Profile Picture" class="profile-pic" />
+      <div class="name">Praveen C</div>
+      <div class="title">Web Developer</div>
+
+      <div class="contact-info">
+        <p>Email:<br />
+          <a href="mailto:cpraveen24108bsccs@gmail.com">cpraveen24108bsccs@gmail.com</a>
+        </p>
+        <p>Phone:<br />
+          <a href="tel:+919361780395">+91 9361780395</a>
+        </p>
+      </div>
+    </aside>
+
+    <!-- Main content / Right panel -->
+    <main class="content">
+
+      <!-- ABOUT ME SECTION -->
+      <section id="about">
+        <h2>About Me</h2>
+        <p>
+          Hello! I'm Praveen C, a passionate Computer Science student currently pursuing my second year at Sridevi Arts and Science College. With a strong enthusiasm for web development and programming, I enjoy crafting clean, efficient, and user-friendly websites and applications. I believe in continuous learning and enjoy exploring new technologies, aiming to build solutions that make a difference.
+        </p>
+      </section>
+
+      <!-- SKILLS SECTION -->
+      <section id="skills">
+        <h2>Skills</h2>
+        <ul>
+          <li>HTML</li>
+          <li>CSS</li>
+          <li>Python</li>
+        </ul>
+        <p>
+          I have hands-on experience in HTML and CSS for building responsive, attractive web pages. Python is my go-to language for scripting, automation, and backend basics. Currently, I’m exploring frameworks and libraries to enhance my full-stack development skills.
+        </p>
+      </section>
+
+      <!-- PROJECTS SECTION -->
+<section id="projects">
+  <h2>Projects</h2>
+
+  <!-- Insta Login Page Project -->
+  <div style="text-align: center; margin-top: 20px;">
+    <!-- Image linked to login.html -->
+    <a href="project.html" target="_blank">
+      <img src="insta page.png" alt="Instagram Login Page" style="width: 300px; border-radius: 12px; box-shadow: 0 0 10px #ff3b3f88;" />
+    </a>
+    
+    <!-- Description below image -->
+    <div style="max-width: 600px; margin: 20px auto; color: #ccc; line-height: 1.6;">
+      <h3 style="color: #ff3b3f;">Insta Login Page</h3>
+      <p>
+        This project is a fully responsive replica of the Instagram login page, built using only HTML and CSS.
+        It showcases my ability to create visually accurate layouts, responsive designs, and clean code structure.
+      </p>
+      <a href="project.html" target="_blank" style="display: inline-block; background: #3399ff; color: #121212; padding: 10px 20px; border-radius: 6px; font-weight: 600; text-decoration: none; box-shadow: 0 0 10px #3399ff88;">
+        View Project
+      </a>
+    </div>
+  </div>
+</section>
+
+
+      <!-- EDUCATION SECTION -->
+      <section id="education">
+        <h2>Education</h2>
+        <p>
+          Currently, I am in the second year of my Bachelor of Science degree in Computer Science at Sridevi Arts and Science College. My coursework includes programming fundamentals, data structures, algorithms, and web technologies, laying a solid foundation for my development career.
+        </p>
+      </section>
+    </main>
+  </div>
+</body>
+</html>

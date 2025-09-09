@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Clone</title>
+
+    <!-- 🌟 Internal CSS Styling -->
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fafafa;
+            color: #262626;
+        }
+
+        h1 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        input, textarea, button {
+            font-family: inherit;
+            font-size: 14px;
+        }
+
+        /* Login Page */
+        #login-page {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom right, #fefefe, #e6e6e6);
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 40px 30px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 320px;
+            text-align: center;
+        }
+
+        #login-form input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            transition: border-color 0.3s ease;
+        }
+
+        #login-form input:focus {
+            outline: none;
+            border-color: #3897f0;
+        }
+
+        #login-form button {
+            width: 100%;
+            padding: 12px;
+            background-color: #3897f0;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        #login-form button:hover {
+            background-color: #2c82d3;
+        }
+
+        /* Feed Page */
+        #feed-page {
+            max-width: 600px;
+            margin: 40px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #ddd;
+            background-color: #fff;
+        }
+
+        header h1 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        #post-btn {
+            background-color: #3897f0;
+            color: #fff;
+            padding: 8px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #post-btn:hover {
+            background-color: #2c82d3;
+        }
+
+        #feed-container {
+            padding: 20px;
+        }
+
+        .post {
+            margin-bottom: 30px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+
+        .post img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .post .caption {
+            font-size: 14px;
+            color: #333;
+        }
+
+        /* Post Form */
+        #post-form {
+            padding: 20px;
+            border-top: 1px solid #ddd;
+            background-color: #fafafa;
+        }
+
+        #post-form input[type="file"] {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #post-form textarea {
+            width: 100%;
+            height: 60px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            resize: vertical;
+            margin-bottom: 10px;
+        }
+
+        #post-form button {
+            background-color: #3897f0;
+            color: white;
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        #post-form button:hover {
+            background-color: #2c82d3;
+        }
+
+        @media (max-width: 640px) {
+            .login-container, #feed-page {
+                margin: 20px;
+                width: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Login Page -->
+    <div id="login-page">
+        <div class="login-container">
+            <h1>Instagram</h1>
+            <form id="login-form">
+                <input type="text" placeholder="Username" id="username" required>
+                <input type="password" placeholder="Password" id="password" required>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Feed Page -->
+    <div id="feed-page" style="display: none;">
+        <header>
+            <h1>Instagram</h1>
+            <button id="post-btn">Post</button>
+        </header>
+        <div id="feed-container">
+            <!-- Posts will be dynamically added here -->
+        </div>
+        <form id="post-form" style="display: none;">
+            <input type="file" id="post-image" accept="image/*">
+            <textarea id="post-caption" placeholder="Caption"></textarea>
+            <button type="submit">Post</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
